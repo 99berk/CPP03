@@ -40,7 +40,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap Destructor Called" << std::endl;
+    std::cout << "FragTrap " << this->_name << " Destructor Called" << std::endl;
 }
 
 void FragTrap::attack(const std::string& target)
@@ -55,8 +55,8 @@ void FragTrap::attack(const std::string& target)
         std::cout << "FragTrap " << this->_name << " no energy left! Can't attack." << std::endl;
         return;
     }
-    std::cout  << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
     --this->_energy_points;
+    std::cout  << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 }
 
 void FragTrap::takeDamage(unsigned int amount)
@@ -91,6 +91,7 @@ void FragTrap::beRepaired(unsigned int amount)
         return;
     }
     this->_hit_points += amount;
+    --this->_energy_points;
     std::cout << "FragTrap " << this->_name << " repaired of " << amount << " HP. New hit points is " << this->_hit_points << "." << std::endl;
 }
 

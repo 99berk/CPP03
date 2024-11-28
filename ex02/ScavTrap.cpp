@@ -40,7 +40,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Destructor Called" << std::endl;
+    std::cout << "ScavTrap " << this->_name << " Destructor Called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -55,8 +55,8 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "ScavTrap " << this->_name << " no energy left! Can't attack." << std::endl;
         return;
     }
-    std::cout  << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
     --this->_energy_points;
+    std::cout  << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount)
@@ -91,6 +91,7 @@ void ScavTrap::beRepaired(unsigned int amount)
         return;
     }
     this->_hit_points += amount;
+    --this->_energy_points;
     std::cout << "ScavTrap " << this->_name << " repaired of " << amount << " HP. New hit points is " << this->_hit_points << "." << std::endl;
 }
 

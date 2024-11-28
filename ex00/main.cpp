@@ -39,4 +39,6 @@ int main(void)
         Clap3.attack("Someone");
     
     std::cout << std::endl;
+
+    return 0;
 }

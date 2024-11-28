@@ -7,6 +7,14 @@ int main(void)
     ScavTrap Scav2("Paul");
 
     std::cout << std::endl;
+    
+    ScavTrap *Scav4 = new ScavTrap("Venus");
+    Scav4->attack("Mars");
+    Scav4->takeDamage(4);
+    Scav4->guardGate();
+    delete Scav4;
+
+    std::cout << std::endl;
 
     Scav1.attack("Paul");
     Scav2.takeDamage(20);
@@ -23,8 +31,8 @@ int main(void)
 
     std::cout << std::endl;
     
-    Scav2.beRepaired(1);
-    Scav1.beRepaired(2);
+    Scav2.beRepaired(10);
+    Scav1.beRepaired(7);
 
     std::cout << std::endl;
     
@@ -32,11 +40,22 @@ int main(void)
     Scav2.beRepaired(50);
 
     std::cout << std::endl;
+
+    Scav1.guardGate();
+
+    std::cout << std::endl;
     
     ScavTrap Scav3;
     int i = -1;
-    while (++i < 4)
+    while (++i < 52)
         Scav3.attack("Someone");
     
     std::cout << std::endl;
+
+    ClapTrap Clap1("McGregor");
+    Clap1.attack("SomeOne");
+
+    std::cout << std::endl;
+
+    return 0;
 }

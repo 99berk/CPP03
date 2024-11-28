@@ -40,7 +40,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap Destructor Called" << std::endl;
+    std::cout << "ClapTrap " << this->_name << " Destructor Called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -55,8 +55,8 @@ void ClapTrap::attack(const std::string& target)
         std::cout << "ClapTrap " << this->_name << " no energy left! Can't attack." << std::endl;
         return;
     }
-    std::cout  << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
     --this->_energy_points;
+    std::cout  << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -91,5 +91,6 @@ void ClapTrap::beRepaired(unsigned int amount)
         return;
     }
     this->_hit_points += amount;
+    --this->_energy_points;
     std::cout << "ClapTrap " << this->_name << " repaired of " << amount << " HP. New hit points is " << this->_hit_points << "." << std::endl;
 }
